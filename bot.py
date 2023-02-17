@@ -14,7 +14,7 @@ import datetime
 # import news_api
 import asyncio
 import youtube_dl
-
+import currency_scraper
 
 PREFIX = os.getenv("PREFIX")
 TOKEN = os.getenv("TOKEN")
@@ -240,14 +240,27 @@ async def leave(ctx):
 
 #------------------------------------MUSICC------------------------------------
 
+@client.command()
+async def convert(ctx, in_cur, out_cur, val):
+    in_cur_ = str(in_cur)
+    out_cur_ = str(out_cur)
+    val_ = int(val)
+    info = currency_scraper.get_currency(in_cur_, out_cur_, val_)
+    await ctx.send(f'{val} {in_cur} = {info} {out_cur}')
 
+@client.command()
+async def currencies(ctx):
+    currency_list = ['INR - Indian Rupee', 'USD - US Dollar', 'EUR - Euro', 'GBP - British Pound', 'AUD - Australian Dollar',
+                     'CAD - Canadian Dollar', 'SGD - Singapore Dollar', 'AED - Emirati Dirham', 'If you want more currencies, visit: https://x-rates.com/ \n Use the link above to find out further available currency symbols.']
+    for currency in currency_list:
+        await ctx.send(f'*{currency}*')
 
 @client.command()
 async def chelp(ctx):
     embed = discord.Embed(title='Help', description="Use '?' prefix before entering a command.",
                           colour=discord.Color.blurple())
-    embed.add_field(name = "**Moderation**", value = "*Kick, Ban, Warn*")
-    embed.add_field(name = "**Functions**", value = "*Weather*")
+    embed.add_field(name = "**Moderation**", value = "*kick, ban, warn*")
+    embed.add_field(name = "**Functions**", value = "*weather, convert*")
     embed.add_field(name = "**Fun**", value = "*roll, choose, kiss*")
     embed.add_field(name = "**Music**", value = "*play(url), pause, resume, stop*")
     embed.add_field(name = "**Misc**", value = "*echo, ping, time*")

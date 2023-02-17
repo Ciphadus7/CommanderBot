@@ -17,3 +17,8 @@ def handle_responses(message) -> str:
     
     if p_message == 'weather':
         return '```The syntax is: ?weather [city_name]```'
+    
+    if p_message == 'convert':
+        return '```The syntax is ?convert [from_currency] [to_currency] [amount]``` \n**If you wish to know the currencies you can convert to and from, use:** ```?currencies```'
+        
+    
