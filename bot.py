@@ -247,11 +247,13 @@ async def chelp(ctx):
     embed = discord.Embed(title='Help', description="Use '?' prefix before entering a command.",
                           colour=discord.Color.blurple())
     embed.add_field(name = "**Moderation**", value = "*Kick, Ban, Warn*")
+    embed.add_field(name = "**Functions**", value = "*Weather*")
     embed.add_field(name = "**Fun**", value = "*roll, choose, kiss*")
     embed.add_field(name = "**Music**", value = "*play(url), pause, resume, stop*")
     embed.add_field(name = "**Misc**", value = "*echo, ping, time*")
 
     await ctx.send(embed=embed)
+
 
 
 @client.event

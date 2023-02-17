@@ -14,3 +14,6 @@ def handle_responses(message) -> str:
             return f'{message[1]} :kiss: '
         except IndexError as e:
             return '```The correct syntax is : ?kiss @<person/bot>```'
+    
+    if p_message == 'weather':
+        return '```The syntax is: ?weather [city_name]```'
