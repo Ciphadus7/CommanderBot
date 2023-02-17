@@ -9,7 +9,7 @@ from discord import Activity, ActivityType
 import random
 import requests
 import responses
-# import weather_api
+import weather_api
 import datetime
 # import news_api
 import asyncio
@@ -107,18 +107,16 @@ async def echo(ctx, *, content:str):
 #     await channel.send(embed=embed)
 
 
-# @client.command()
-# async def weather(city) -> str:
-#     """
-#     Shows the current temperature of a city.
-#     """
-#     info = weather_api.get_weather_single(city)
-#     print(info)
-#     channel = city.channel
-#     await channel.send(info)
+@client.command()
+async def weather(ctx, city) -> str:
+    """
+    Shows the current temperature of a city.
+    """
+    info = weather_api.get_weather_single(city)
+    print(info)
+    await ctx.send(info)
 
     #throws the error
-
 
 #KICK FUNCTION
 @client.command()
