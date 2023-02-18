@@ -1,6 +1,6 @@
 import random
 def handle_responses(message) -> str:
-    p_message = message[1:].lower() # -> ?kiss ciphadus  -> kiss ciphadus
+    p_message = message[1:].lower()
 
     if p_message == 'hello':
         return 'Hey there!'
